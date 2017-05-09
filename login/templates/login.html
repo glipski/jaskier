@@ -1,6 +1,9 @@
-{% block title %}Login{% endblock %}
+<html>
+<head>
+     <link rel="stylesheet" type="text/css" href="login.css">
+</head>
 
-{% block content %}
+<body>
   <h2>Login</h2>
   <form method="post">
     {% csrf_token %}
@@ -22,4 +25,6 @@
 		</tr>
 	</table>
   </form>
-{% endblock %}
+</body>
+
+</html>
