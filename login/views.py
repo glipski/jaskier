@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from login.forms import LoginForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
@@ -37,3 +37,7 @@ def registration_page(request):
 	else:
 		form = LoginForm()
 	return render(request, 'registration.html', {'form': form})
+
+def logout_page(request):
+	logout(request)
+	return redirect('/user/login/')
