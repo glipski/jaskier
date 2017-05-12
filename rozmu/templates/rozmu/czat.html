@@ -4,7 +4,19 @@
 </head>
 
 <body>
-
+<div>
+{% for message in lista %}
+<b>{{message.Author}}</b><br>
+{{message.Text}}<br>
+{% endfor %}
+</div><br>
+<div>
+<form method="POST">
+{% csrf_token %}
+{{form.as_p}}
+<button type="submit">Wyślij</button>
+</form>
+</div>
 </body>
 
 

@@ -1,15 +1,17 @@
 from django.shortcuts import render
 from .models import Message
 from django.http import HttpResponse
-
+from .forms import NewMessage
+from django.utils import timezone
 def IndexView(request):
-	s = ""
 	lista = Message.objects.all()
-	for message in lista:
-		s+="<b>"
-		s+=str(message.Author)
-		s+="</b>"
-		s+="<br>"
-		s+=str(message.Text)
-		s+="<br>"
-	return HttpResponse(s)
+	if request.method=="POST":
+		form=NewMessage(request.POST)
+		if form.is_valid():
+			t=form.cleaned_data['Text']
+			m=Message(Text=t,Author=request.user,Date=timezone.now())
+			m.save()
+	else:
+		form=NewMessage()		
+	return render(request,'rozmu/czat.html',{'form':form,'lista':lista})
+		
