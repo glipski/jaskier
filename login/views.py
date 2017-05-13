@@ -25,6 +25,7 @@ def login_page(request):
 	return render(request, 'login.html', {'form': form})
 
 def registration_page(request):
+	error = ""
 	if request.method == 'POST':
 		form = LoginForm(request.POST)
 		if form.is_valid():
@@ -37,15 +38,15 @@ def registration_page(request):
 				login(request, user)
 				return HttpResponseRedirect('/czat/')
 			else:
-				return HttpResponseRedirect('/takiuzytkownikjuzistnieje/')
+				error = "Taki użytkownik już istnieje"
 	else:
 		form = LoginForm()
-	return render(request, 'registration.html', {'form': form})
-
-
+	return render(request, 'registration.html', {'form': form, 'err': error})
 
 def logout_page(request):
 	logout(request)
 	return redirect('/user/login/')
+
+
 
 

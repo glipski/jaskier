@@ -1,9 +1,45 @@
+
+{% load static %}
 <html>
 
 <head>
+         <link rel="stylesheet" type="text/css" href="{% static 'rozmu/style.css' %}">
 </head>
 
 <body>
+<div id="container">
+
+<h3> Zalogowany jako {{ request.user }} </h3>
+<div id="menu">
+<br>
+<div class="option"> <a href="/user/logout">Wyloguj się </a> </div>
+<div class="option"> <a href="/user/logout">Wyloguj się </a> </div>
+<div class="option"> <a href="/user/logout">Wyloguj się </a> </div>
+<div class="option"> <a href="/user/logout">Wyloguj się </a> </div>
+<div style="clear:both;"> </div>
+</div>
+
+<div id="wiadomosci">
+<h2> ROZMU-ROZMU </h2>
+{% for message in lista %}
+{% if request.user.username == message.Author.username %}<u> <b>{{message.Author}}</b></u>
+{% else %} <b> {{message.Author}}</b>
+{% endif %}
+<br>
+{{message.Text}}<br>
+{% endfor %}
+
+<br>
+
+<form method="POST">
+{% csrf_token %}
+{{form.as_p}}
+<button type="submit">Wyślij</button>
+</form>
+
+</div>
+
+</div>
 
 </body>
 
