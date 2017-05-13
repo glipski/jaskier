@@ -1,10 +1,14 @@
 from django.shortcuts import render
 from .models import Message
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth import authenticate
 
 def IndexView(request):
 	if request.user.is_authenticated:
-		s = ""
+		s = "Zalogowany jako "
+		s+=str(request.user.username)
+		s+="<br>"
+		s+='<a href="/user/logout">Wyloguj się </a> <br>'
 		lista = Message.objects.all()
 		for message in lista:
 			s+="<b>"
@@ -16,3 +20,11 @@ def IndexView(request):
 		return HttpResponse(s)
 	else:
 		return HttpResponseRedirect('/user/login/')
+
+def authentic(request):
+	if not request.user.is_authenticated:
+		return HttpResponseRedirect("/user/login")
+	return IndexView(request) 
+	
+
+

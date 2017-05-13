@@ -30,14 +30,10 @@ def registration_page(request):
 		if form.is_valid():
 			u = form.cleaned_data['username']
 			p = form.cleaned_data['password']
-			user = User.objects.get(username=u)
-			if user == None:
-				user = User.objects.create_user(username=u, password=p)
-				user.save()
-				login(request, user)
-				return HttpResponseRedirect('/czat/')
-			else:
-				return HttpResponseRedirect('/takiuzytkownikjuzistnieje/')
+			user = User.objects.create_user(username=u, password=p)
+			user.save()
+			login(request, user)
+			return HttpResponseRedirect('/czat/')
 	else:
 		form = LoginForm()
 	return render(request, 'registration.html', {'form': form})
