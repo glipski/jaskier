@@ -1,0 +1,33 @@
+
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'rozmu/style.css' %}">
+    </head>
+    <body>
+        <div id="container">
+            <h3> Zalogowany jako {{ request.user }} </h3>
+
+            <div id="lewy">
+                <div id="logo">
+                    <h2>Rozmu rozmu</h2>
+                </div>
+
+                <div id="wiadomosci">
+                    <h2> ROZMU-ROZMU </h2>
+                    {% for message in lista %}
+                    {% if request.user.username == message.Author.username %}<u> <b>{{message.Author}}</b></u>
+                    {% else %} <b> {{message.Author}}</b>
+                    {% endif %}<br>
+                    {{message.Text}}<br>
+                    {% endfor %}<br>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{form.as_p}}
+                        <button type="submit">Wyślij</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
