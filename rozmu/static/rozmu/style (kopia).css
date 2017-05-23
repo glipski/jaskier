@@ -1,0 +1,68 @@
+html
+{
+	height: 100vh;
+}
+body
+{
+	background-color:#444444;
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+	color: white;
+	height: 100vh;
+}
+
+.option
+{
+	float:left;
+	border-right: 5px dotted;
+	background-color:#303030;
+	font-size:20px;
+	height:30px;
+	width:150px;
+	margin-left:auto;
+}
+.option:hover
+{
+	background-color:#202020;
+}
+
+a:visited
+{
+	color:white;
+}
+
+div#container
+{
+	margin-left:auto;
+	margin-right:auto;
+	width:1200px;
+	height: inherit;
+}
+
+div#menu
+{
+	width:1000px;
+}
+
+div#wiadomosci
+{
+	text-align:center;
+	border:10px solid;
+	width:1000px;
+	height: 90%;
+	background-color: #224390;
+	clear:both;
+	overflow:scroll;
+}
+#lewy
+{
+	float: left;
+}
+#prawy
+{
+	float: left;
+}
+#footer
+{
+	clear: both;
+}

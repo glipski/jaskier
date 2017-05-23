@@ -1,47 +1,44 @@
 
 {% load static %}
 <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'rozmu/style.css' %}">
+    </head>
+    <body>
+        <div id="container">
+            <div id="lewy">
+                <div id="logo">
+                    <h2 id="log">Rozmu rozmu</h2>
+                </div>
 
-<head>
-         <link rel="stylesheet" type="text/css" href="{% static 'rozmu/style.css' %}">
-</head>
-
-<body>
-<div id="container">
-
-<h3> Zalogowany jako {{ request.user }} </h3>
-<div id="menu">
-<br>
-<div class="option"> <a href="/user/logout">Wyloguj się </a> </div>
-<div class="option"> <a href="/user/logout">Wyloguj się </a> </div>
-<div class="option"> <a href="/user/logout">Wyloguj się </a> </div>
-<div class="option"> <a href="/user/logout">Wyloguj się </a> </div>
-<div style="clear:both;"> </div>
-</div>
-
-<div id="wiadomosci">
-<h2> ROZMU-ROZMU </h2>
-{% for message in lista %}
-{% if request.user.username == message.Author.username %}<u> <b>{{message.Author}}</b></u>
-{% else %} <b> {{message.Author}}</b>
-{% endif %}
-<br>
-{{message.Text}}<br>
-{% endfor %}
-
-<br>
-
-<form method="POST">
-{% csrf_token %}
-{{form.as_p}}
-<button type="submit">Wyślij</button>
-</form>
-
-</div>
-
-</div>
-
-</body>
-
-
+                <div id="wiadomosci">
+                    {% for message in lista %}
+                    {% if request.user.username == message.Author.username %}
+                        <div id="autor"> {{message.Author}}</div>
+                        <div id="mess">
+                            {{message.Text}}
+                        </div>
+                    {% else %}
+                        <div id="autor"> {{message.Author}}</div>
+                        <div id="mess_a">
+                            {{message.Text}}
+                        </div>
+                    {% endif %}<br>
+                    {% endfor %}
+                </div>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{form.Text}}
+                    <button type="submit" id="wyslij">Wyślij</button>
+                </form>
+                <script type="text/javascript">
+                    setTimeout("document.getElementById('wiadomosci').scrollTop=1e6",100)
+                </script>
+            </div>
+            <div id="prawy">
+                <h3 id="log"> zalogowany <br> jako <br>{{ request.user }}</h3>
+            </div>
+            <div id="footer"><a href="/user/logout">Wyloguj</div>
+        </div>
+    </body>
 </html>

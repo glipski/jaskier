@@ -1,12 +1,17 @@
+html
+{
+	height: 100vh;
+}
 body
 {
-	background-color:#444444;	
+	background-color:#444444;
 	text-align: center;
 	font-family: Verdana, Geneva, sans-serif;
 	color: white;
+	height: 100vh;
 }
 
-.option
+/*.option
 {
 	float:left;
 	border-right: 5px dotted;
@@ -24,13 +29,15 @@ body
 a:visited
 {
 	color:white;
-}
+}*/
 
 div#container
 {
 	margin-left:auto;
 	margin-right:auto;
 	width:1200px;
+	height: 100%;
+	display: flex;
 }
 
 div#menu
@@ -40,11 +47,89 @@ div#menu
 
 div#wiadomosci
 {
-	text-align:center;
-	border:10px solid;
-	width:1000px;	
+	text-align:left;
+	padding: 5px;
+	border:3px solid;
+	width:65vw;
+	height: 50%;
 	background-color: #224390;
-	clear:both;
+	/*clear:both;*/
+	overflow:scroll;
 }
+#mess
+{
+	background-color: #CCECF6;
+	color: black;
+	width: auto;
+	float: left;
+	padding: 5px;
+	margin: 5px;
+	clear: both;
+	border-radius: 0px 10px 10px 10px;
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+	font-weight: 100;
+}
+#mess_a
+{
+	background-color: white;
+	color: black;
+	width: auto;
+	float: left;
+	padding: 5px;
+	margin: 5px;
+	clear: both;
+	border-radius: 0px 10px 10px 10px;
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+	font-weight: 100;
+}
+#pole
+{
+	height: 100px;
+	width: 60vw;
+	float: left;
+}
+#wyslij
+{
+	float: left;
+	width: 6vw;
+	height: 100px;
+}
+#autor
+{
+	font-size: 10px;
+	clear: both;
+	margin: 20px 0px 0px 5px;
 
-
+}
+#logo
+{
+	height: 70px;
+}
+#lewy
+{
+	float: left;
+}
+#prawy
+{
+	float: left;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-grow: 100;
+	height: 70%;
+}
+#log
+{
+	font-family: Verdana, Geneva, sans-serif;
+	font-weight: 500;
+}
+#footer
+{
+	clear: both;
+}
+a
+{
+	color: white;
+}
