@@ -7,6 +7,7 @@ from django.utils import timezone
 def IndexView(request):
 	if request.user.is_authenticated == False:
 		return HttpResponseRedirect('/user/login/')
+
 	lista = Message.objects.all()
 	if request.method=="POST":
 		form=NewMessage(request.POST)

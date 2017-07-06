@@ -1,0 +1,40 @@
+<html>
+    <head>
+        {% load static %}
+         <link rel="stylesheet" type="text/css" href="{% static 'login/login.css' %}">
+    </head>
+    <body>
+        <div id="content">
+            <form action="." method="post">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <tr>
+              <td><button type=submit> Utwórz konto</button></td>
+              </tr>
+
+
+
+
+             <!--<table>
+                  <tr>
+                      <td><h2>Zarejestruj się!</h2></td>
+                  </tr>
+                  <tr>
+                      <td>{{ err }}</td>
+                  </tr>
+                  <tr>
+                      <td>{{ form.username }}</td>
+                  </tr>
+                  <tr>
+                      <td>{{ form.password }}</td>
+                  </tr>
+                  <tr>
+                      <td><button type="submit">Załóż konto</button></td>
+                  </tr>
+              </table>-->
+
+              
+            </form>
+        <div>
+    </body>
+</html>

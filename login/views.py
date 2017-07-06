@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+
+
 from django.shortcuts import render, redirect
 from login.forms import LoginForm
 from django.contrib.auth import authenticate, login, logout
@@ -7,6 +10,13 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.views import generic
 
 # Create your views here.
+
+
+def index(request):
+    """Strona główna"""
+    kontekst = {'komunikat': 'Witamy w Rozmu-rozmu!'}
+    return render(request, 'login/index.html', kontekst)
+
 
 def login_page(request):
 	if request.method == 'POST':
@@ -24,6 +34,8 @@ def login_page(request):
 		form = LoginForm()
 	return render(request, 'login.html', {'form': form})
 
+
+
 def registration_page(request):
 	error = ""
 	if request.method == 'POST':
@@ -36,16 +48,16 @@ def registration_page(request):
 				user = User.objects.create_user(username=u, password=p)
 				user.save()
 				login(request, user)
-				return HttpResponseRedirect('/czat/')
+				return redirect('/')
 			else:
 				error = "Taki użytkownik już istnieje"
 	else:
 		form = LoginForm()
-	return render(request, 'registration.html', {'form': form, 'err': error})
+	return render(request, 'registration_form.html', {'form': form, 'err': error})
 
 def logout_page(request):
 	logout(request)
-	return redirect('/user/login/')
+	return redirect('/registration/')
 
 
 

@@ -1,0 +1,25 @@
+<html>
+
+<head>
+{% load static %} <link rel="stylesheet" type="text/css" href="{% static 'login/login.css' %}">
+</head>
+
+
+<h1>Rozmu rozmu</h1>
+<p>{{ komunikat }}</p>
+
+<ul>
+{% if not user.is_authenticated %}
+  <li><a href="{% url 'auth_login' %}">Zaloguj się</a></li>
+  <li><a href="{% url 'registration_register' %}">Utwórz konto</a></li>
+{% else %}
+
+  <li><a href="{% url 'auth_logout' %}">Wyloguj się</a></li>
+  <li><a href="{% url 'auth_login' %}">Zaloguj się</a></li>
+
+{% endif %}
+</ul>
+
+</html>
+
+

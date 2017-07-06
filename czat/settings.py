@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 	'login',
 	'rozmu',
+    'registration',
 ]
 
 MIDDLEWARE = [
@@ -120,3 +121,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# django-registration
+REGISTRATION_AUTO_LOGIN = True  # automatyczne logowanie po rejestracji
+LOGIN_REDIRECT_URL = '/czat/'  # strona docelowa po zalogowaniu
+LOGIN_URL = '/user/login/'  # strona logowania

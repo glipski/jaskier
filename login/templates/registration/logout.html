@@ -1,0 +1,14 @@
+<html>
+
+<head>
+{% load static %} <link rel="stylesheet" type="text/css" href="{% static 'login/login.css' %}">
+</head>
+
+
+<h1>Wylogowanie</h1>
+<h2>Zostałeś wylogowany!</h2>
+
+<div>
+<li><a href="{% url 'auth_login' %}">Zaloguj się ponownie</a></li>
+</div>
+</html>

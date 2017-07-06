@@ -1,12 +1,12 @@
 body
 {
-	margin: 0;
+	margin: 50;
 	display: flex;
 	background-color: #444444;
 	align-items: center;
 	justify-content: center;
 	height: 70%;
-	padding: 20px;
+	padding: 30px;
 }
 #content
 {
@@ -42,7 +42,7 @@ input
 }
 button
 {
-	margin: 4px;
+	margin: 6px;
 	background-color: #444444;
 	color: white;
 	border: none;
